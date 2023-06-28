@@ -1,10 +1,8 @@
 import { IonApp, IonHeader, IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs, IonTitle, IonToolbar } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import { Redirect, Route } from "react-router";
-import Tab1 from "./Tab1";
 import BranchesProductsStatus from "./HeadquarterManager/BranchesProductsStatus";
 import BranchesMainPage from "./BranchesMainPage";
-import Tab3 from "./Tab3";
 import { cart, cube, hammer, home, language, search, storefront } from "ionicons/icons";
 import Header from "./Header";
 import Profile from "./Profile";
@@ -28,9 +26,6 @@ function Body(props) {
         
         <IonTabs>
             <IonRouterOutlet>
-                <Route exact path="/tab1">
-                    <Tab1 />
-                </Route>
                 <Route exact path="/HeadquarterManager/BranchesProductsStatus">
                     <BranchesProductsStatus />
                 </Route>
@@ -61,7 +56,7 @@ function Body(props) {
             </IonRouterOutlet>
 
             <IonTabBar slot="bottom">
-                <IonTabButton tab="tab1" href="/branches">
+                <IonTabButton tab="branches" href="/branches">
                     <IonIcon aria-hidden="true" icon={storefront} />
                     <IonLabel>Branches</IonLabel>
                 </IonTabButton>
