@@ -12,7 +12,8 @@ const users = [
         password: "1234",
         roleId: '2',
         firstName: 'israel',
-        surename: 'israeli'
+        surename: 'israeli',
+        managerBranchId: '6495731c4affbb1d0cd914d5'
     }, 
 
 ]

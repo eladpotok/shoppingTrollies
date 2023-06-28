@@ -17,6 +17,41 @@ export async function getBranchById(branchId) {
     }
 }
 
+export async function getAllEntities() {
+    const branchesByHirarchy = await getBranches()
+    const result = []
+
+    branchesByHirarchy.data.forEach(region => {
+        result.push({ 
+            name: region.region,
+            id: '1',
+            location: region.region,
+            type: 'region'
+        })
+
+        region.cities.forEach( city => {
+            result.push({ 
+                name: city.name,
+                id: '2',
+                location: city.name,
+                type: 'city'
+            })
+
+            city.branches.forEach(branch => {
+                result.push({ 
+                    name: branch.name,
+                    id: branch._id,
+                    location: branch.location,
+                    type: 'branch'
+                })
+            })
+
+        })
+    });
+
+    return result
+}
+
 export async function getBranches() {
     return{
         "status": "OK",

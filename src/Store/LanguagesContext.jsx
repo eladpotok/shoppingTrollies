@@ -11,16 +11,19 @@ export const LanguagesContextProvider = (props) => {
     
     useEffect(() => {
         (async () => {
-            if (!localStorage.getItem('currLang')) {
-                const lang = await getLanguages()
-                const langStringify = JSON.stringify(lang)
-                setLanguages(lang)
-                localStorage.setItem('currLang', langStringify)
-            }
-            else {
-                const lang = localStorage.getItem('currLang')
-                setLanguages(JSON.parse(lang))
-            }
+            // if (!localStorage.getItem('currLang')) {
+            //     const lang = await getLanguages()
+            //     const langStringify = JSON.stringify(lang)
+            //     setLanguages(lang)
+            //     localStorage.setItem('currLang', langStringify)
+            // }
+            // else {
+            //     const lang = localStorage.getItem('currLang')
+            //     setLanguages(JSON.parse(lang))
+            // }
+
+            const lang = await getLanguages(1)
+            setLanguages(lang)
         })()
     }, [])
 

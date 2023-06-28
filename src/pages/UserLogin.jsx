@@ -4,6 +4,7 @@ import { IonApp } from '@ionic/react';
 import { Input, Button } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { LanguagesContext } from '../Store/LanguagesContext';
+import { AppName } from '../Globals/Themes';
 
 function UserLogin(props){ 
 
@@ -23,11 +24,19 @@ function UserLogin(props){
 
     return (
         <div>
-            <Input onChange={(e) => { setMail(e.target.value) }} placeholder={langs['mailPlaceHolder']} prefix={<UserOutlined/>}/>
-            <Input.Password onChange={(e) => { setPassword(e.target.value) }} placeholder={langs['passwordPlaceHolder']}/>
-
-            <Button onClick={loginClickedHandler} type='primary'>{langs['loginLabel']}</Button>
-            <Button type='link'>{langs['forgotPasswordLabel']}</Button>
+            <div style={{display: 'flex', justifyContent: 'center', marginTop: '50%', marginLeft: '10%', marginRight: '10%'}}>
+                <div>
+                    <div style={{display: 'flex', justifyContent: 'center'}}>{AppName}</div>
+                    <Input style={{marginTop: '5px'}} onChange={(e) => { setMail(e.target.value) }} placeholder={langs['mailPlaceHolder']} prefix={<UserOutlined/>}/>
+                    <Input.Password style={{marginTop: '5px'}} onChange={(e) => { setPassword(e.target.value) }} placeholder={langs['passwordPlaceHolder']}/>
+                    <div style={{display: 'flex', justifyContent: 'center', marginTop: '5px'}}>
+                        <div>
+                            <Button onClick={loginClickedHandler} type='primary'>{langs['loginLabel']}</Button>
+                            <Button type='link'>{langs['forgotPasswordLabel']}</Button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 

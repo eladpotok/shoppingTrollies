@@ -19,17 +19,18 @@ import '../theme/variables.css';
 import Body from "./Body";
 import { IonApp, IonContent, IonTitle, IonToolbar } from '@ionic/react';
 import Header from './Header';
+import './MainMenu.css'
 
 function MainMenu(props) {
 
     return (
-        <IonApp>           
+        <IonApp className="background-div">           
              <IonReactRouter>
                 <div>
                     <Header onLogout={props.onLogout}/>
                 </div>
                 <IonContent>
-                    <Body onLogout={props.onLogout}/>
+                    <Body roleId={props.roleId} onLogout={props.onLogout}/>
                 </IonContent>
             </IonReactRouter>
         </IonApp>

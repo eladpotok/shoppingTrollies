@@ -59,3 +59,48 @@ export async function getTrolliesById(id) {
         ]
     }
 }
+
+
+export async function getMissingTrollies() {
+
+    return [
+
+        {
+            branchId: '6495731c4affbb1d0cd914d5',
+            missings: [
+                {
+                    imageUrl: 'src\\Assets\\product_cart.png',
+                    productId: 1,
+                    title: 'Trolley',
+                    amount: 20
+                }
+            ]
+        },
+        {
+            branchId: '64957831a7a9eadef390b3d1',
+            missings: [
+                {
+                    imageUrl: 'src\\Assets\\product_cart.png',
+                    productId: 1,
+                    title: 'Trolley',
+                    amount: 13
+                }
+            ]
+        },
+        {
+            branchId: '64957831a7a9eadef390b3d2',
+            missings: [
+                {
+                    imageUrl: 'src\\Assets\\product_cart.png',
+                    productId: 1,
+                    title: 'Trolley',
+                    amount: 7
+                }
+            ]
+        }
+    ]
+}
+
+
+
+

@@ -1,31 +1,16 @@
 import React, { useEffect, useState } from "react";
 
 import { IonContent, IonHeader, IonIcon, IonItem, IonList, IonPage, IonSelect, IonSelectOption, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../../components/ExploreContainer';
-import ProductPieChart from '../../components/ProductPieChart';
-import { getTrollies } from '../../APIs/TrolleiesProvider';
-import TreeView from "../../components/TreeView";
 import { getBranches } from "../../APIs/BranchesProvider";
-import { Button } from "antd";
-import { useHistory } from 'react-router';
 import { statsChart, storefront } from "ionicons/icons";
 import { displayFontColor, mainBackground } from "../../Globals/Themes";
-import ProductStats from "../ProductStats";
 import RegionsTreeList from "../../components/RegionsTreeList";
 
-function Home(props) {
 
-    const [trollies, setTrollies ] = useState([])
+function BranchesList(props) {
     const [regions, setRegions]  = useState(null)
-    const [selectedRegion, setSelectedRegion] = useState(null)
-    const history = useHistory();
 
-    useEffect(() => {
-        (async () => {
-            const trollies = await getTrollies()
-            setTrollies(trollies)
-        })()
-    }, [])
+    const referTo = props.referTo
 
     useEffect(() => {
       (async () => {
@@ -37,17 +22,9 @@ function Home(props) {
   }, [regions])
 
 
-  function treeNodeClickedHandler(id) {
-    const capacityInRegion = trollies.filter( t => t.regionId == id)
-    if(!capacityInRegion || capacityInRegion.length == 0) {
-      setSelectedRegion(null)  
-      return
-    }
-    setSelectedRegion(capacityInRegion[0])
-  }
 
   return (
-    <IonPage style={{backgroundColor: mainBackground}}>
+    <IonPage>
       <IonContent>
         <div style={{margin: '10px' }}>
             <div style={{fontSize: '18px', marginLeft: '10px', display: 'flex'}}>
@@ -55,12 +32,15 @@ function Home(props) {
               <div style={{marginLeft: '10px', 'border-bottom': '1px solid', borderColor: displayFontColor}}>List of Stores</div>
             </div>
             {regions && regions.data.map( region => { 
-              return <RegionsTreeList fontSize='24px' onClicked={treeNodeClickedHandler} root={region}/>
+              return <RegionsTreeList referTo={referTo} fontSize='24px' root={region}/>
             })}
         </div>
       </IonContent>
     </IonPage>
   );
-};
 
-export default Home;
+
+}
+
+
+export default BranchesList

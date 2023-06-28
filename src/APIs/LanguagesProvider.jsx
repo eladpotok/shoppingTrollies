@@ -1,16 +1,54 @@
-export async function getLanguages() {
-    return {
-        mailPlaceHolder: 'insert mail',
-        passwordPlaceHolder: 'insert password',
-        loginLabel: 'Login',
-        forgotPasswordLabel: 'Forgot Password',
-    }
+export async function getLanguages(id) {
+    const langs = [
+        {            
+            flow: 'ltr',
+            id: 1,
+            translations: {
+                mailPlaceHolder: 'insert mail',
+                passwordPlaceHolder: 'insert password',
+                loginLabel: 'Login',
+                forgotPasswordLabel: 'Forgot Password',
+                homeTab: 'Find', 
+                overViewFindEntityPlaceHolder: 'Find you branch...',
+                emailAddressLabel: 'Email Address',
+                passwordLabel: 'Password',
+                myAccountLabel: 'My Account',
+                logoutButtonText: 'Logout'
+            }
+        },
+        {
+            flow: 'rtl',
+            id: 2,
+            translations: {
+                mailPlaceHolder: 'insert mail',
+                passwordPlaceHolder: 'insert password',
+                loginLabel: 'Login',
+                forgotPasswordLabel: 'Forgot Password',
+                homeTab: 'חיפוש',
+                overViewFindEntityPlaceHolder: 'הקלד את שם המקום שאתה מחפש...',
+                emailAddressLabel: 'כתובת מייל אלקטרוני',
+                passwordLabel: 'סיסמה',
+                myAccountLabel: 'החשבון שלי',
+                logoutButtonText: 'יציאה מהחשבון'
+            }
+        }
+    ] 
+
+    return langs.filter( l => l.id == id)[0]
 }
 
 
 export async function getAvailableLanguages() {
     return [
-        {[en-us]: 'English'},
-        {[he-il]: 'Hebrew'},
+        {
+            short: 'en-us',
+            display: 'English',
+            id: 1
+        },
+        {
+            short: 'he-il',
+            display: 'Hebrew',
+            id: 2
+        }
     ]
 }

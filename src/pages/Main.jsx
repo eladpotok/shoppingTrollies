@@ -32,13 +32,13 @@ function Main(props) {
     }
 
     return (
-     <div> 
+     <div > 
         { !userContext.user && <div>
-            <UserLogin onLogin={loginHandler} langs={langsContext.languages}/>
+            <UserLogin onLogin={loginHandler} langs={langsContext.languages.translations}/>
         </div>}
 
         { userContext.user && <div>
-            <MainMenu onLogout={logoutHandler}/>
+            <MainMenu roleId={userContext.user.roleId} onLogout={logoutHandler}/>
         </div>}
      </div>
     )

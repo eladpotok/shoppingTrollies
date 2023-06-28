@@ -7,11 +7,6 @@ import { Router } from "react-router";
 function RegionsTreeList(props) {
 
     const [isExpanded, setExpanded] = useState(true)    
-
-    function treeViewNodeClickedHandler(id) {
-        props.onClicked(id)
-    }
-
     const root = props.root
     
     return (
@@ -23,7 +18,7 @@ function RegionsTreeList(props) {
                     <div style={{marginLeft: '10px', marginTop: '-2px'}}>{root.region}</div>
                 </div>
                 {root.cities && isExpanded && root.cities.map( (i, _index) => {
-                    return <CitiesTreeList fontSize={props.fontSize} onClicked={treeViewNodeClickedHandler} root={i} key={_index}/>
+                    return <CitiesTreeList referTo={props.referTo} fontSize={props.fontSize} root={i} key={_index}/>
                 } )}
             </div>    
         </div>
@@ -45,7 +40,7 @@ function CitiesTreeList(props) {
                     <div style={{marginLeft: '10px', marginTop: '-2px'}}>{root.name}</div>
                 </div>
                 {root.branches && isExpanded && root.branches.map( (i, _index) => {
-                    return <BarnchesTreeList fontSize={props.fontSize} onClicked={props.onClicked} root={i} key={_index}/>
+                    return <BarnchesTreeList referTo={props.referTo} fontSize={props.fontSize}  root={i} key={_index}/>
                 } )}
             </div>    
         </div>
@@ -56,11 +51,11 @@ function BarnchesTreeList(props) {
     const [isExpanded, setExpanded] = useState(true)    
     const root = props.root
     
-    const href = `/productsStats/${root._id}`
+    const href = `/${props.referTo.href}/${root._id}`
     return (
         <div >
             <div style={{marginLeft: '10px'}}>
-                <IonButton fill="clear" tab="productsStats" href={href} >{root.location}</IonButton>
+                <IonButton fill="clear" tab={props.referTo.tab} href={href} >{root.location}</IonButton>
             </div>    
         </div>
     )
