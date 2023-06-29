@@ -18,8 +18,8 @@ function Orders(props) {
     }, [])
 
     return (
-        <IonPage>
-            <IonContent>
+        <div>
+            <div>
                 {branches && branches.map( branch => {
                     return  <Card style={{marginTop: '10px'}} cover={<div style={{background:'grey', borderTopLeftRadius: '10px', borderTopRightRadius: '10px'}}><Image style={{marginLeft: '50%'}} height={155} width={155} src={branch.imageUrl}/></div>}>
                     <div style={{display: 'flex', justifyContent: 'space-between'}}>
@@ -27,8 +27,8 @@ function Orders(props) {
                         {/* <div style={{fontSize: '30px', fontWeight: 'bold'}}>{storage.amount}</div> */}
                     </div>
              </Card> })}
-            </IonContent>
-        </IonPage>
+            </div>
+        </div>
 
     )
 

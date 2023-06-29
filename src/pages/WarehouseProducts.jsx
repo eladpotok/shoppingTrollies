@@ -23,13 +23,13 @@ function WarehouseProducts(props) {
     useEffect(() => {
         (async () => {
             
-       //     if(!warehouseProducts) {
+           if(!warehouseProducts) {
                 console.log('read products from server')
                 const products = await getWarehouseProducts(warehosueId)
                 setWarehouseProducts(products )
-          //  }
+           }
         })()
-    }, [location.pathname])
+    }, [warehouseProducts])
 
     // useEffect(async () => {
     //     // Reset state when component mounts
@@ -46,16 +46,16 @@ function WarehouseProducts(props) {
     
 
     return (
-        <IonPage style={{margin: '10px'}}>
-            <IonContent>
+        <div style={{margin: '10px'}}>
+            <div>
                 {warehouseProducts && warehouseProducts.exists.map( storage => {  return  <Card style={{marginTop: '10px'}} cover={<div style={{background:'grey', borderTopLeftRadius: '10px', borderTopRightRadius: '10px'}}><Image style={{marginLeft: '50%'}} height={155} width={155} src={storage.imageUrl}/></div>}>
                         <div style={{display: 'flex', justifyContent: 'space-between'}}>
                             <Meta title={storage.title} description={storage.description} />
                             <div style={{fontSize: '30px', fontWeight: 'bold'}}>{storage.amount}</div>
                         </div>
                  </Card> })}
-            </IonContent>
-        </IonPage>
+            </div>
+        </div>
     )
 }
 

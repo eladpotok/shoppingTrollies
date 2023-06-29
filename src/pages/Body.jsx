@@ -27,24 +27,24 @@ function Body(props) {
     return (
         
         <IonTabs>
-            <IonRouterOutlet ionPage>
+            <IonRouterOutlet>
                 <Route exact path="/HeadquarterManager/BranchesProductsStatus">
-                    <BranchesProductsStatus />
+                    <BranchesProductsStatus title={dic["branchesTab"]}/>
                 </Route>
                 <Route exact path="/WarehouseProducts/:warehosueId">
                     <WarehouseProducts />
                 </Route>
                 <Route exact path="/branches">
-                    <BranchesMainPage roleId={props.roleId}/>
+                    <BranchesMainPage  roleId={props.roleId}/>
                 </Route>
                 <Route exact path="/HeadquarterManager/orders">
                     <Orders title={dic["ordersTab"]} />
                 </Route>
                 <Route exact path="/profile">
-                    <Profile onLogout={props.onLogout}/>
+                    <Profile title={dic["profileTitle"]} onLogout={props.onLogout}/>
                 </Route>
                 <Route exact path="/productsStats/:branchId">
-                    <ProductStats/>
+                    <ProductStats title={dic["productsTitle"]}/>
                 </Route>
                 <Route exact path="/HeadquarterManager/overview">
                     <Overview title={dic["findTab"]}/>

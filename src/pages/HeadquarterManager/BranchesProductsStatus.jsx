@@ -1,21 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 
-import { IonContent, IonHeader, IonIcon, IonItem, IonList, IonPage, IonSelect, IonSelectOption, IonTitle, IonToolbar } from '@ionic/react';
-import ProductPieChart from '../../components/ProductPieChart';
-import { getTrollies } from '../../APIs/TrolleiesProvider';
-import TreeView from "../../components/TreeView";
-import { getBranches } from "../../APIs/BranchesProvider";
-import { Button } from "antd";
-import { useHistory } from 'react-router';
-import { statsChart, storefront } from "ionicons/icons";
-import { displayFontColor, mainBackground } from "../../Globals/Themes";
-import ProductStats from "../ProductStats";
-import RegionsTreeList from "../../components/RegionsTreeList";
 import BranchesList from "./BranchesList";
+import { HeaderContext } from "../../Store/HeaderContext";
 
 function BranchesProductsStatus(props) {
+  const headerContext = useContext(HeaderContext)
 
   const referTo= {tab: "productsStats", href: 'productsStats'}
+
+  headerContext.setTitle(props.title)
+
   return (
       <BranchesList referTo={referTo}/>
   );

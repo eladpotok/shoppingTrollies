@@ -10,12 +10,17 @@ import { lightTextColor, logoutButtonColor, secondaryTitleColor } from "../Globa
 import { LanguagesContext } from "../Store/LanguagesContext";
 import { AiFillEdit, AiOutlineMail } from "react-icons/ai";
 import { MdPassword, MdAccountBox, MdLanguage } from "react-icons/md";
+import { HeaderContext } from "../Store/HeaderContext";
 
 function Profile(props) {
 
     const userContext = useContext(UserContext)
     const languagesContext = useContext(LanguagesContext)
     const [isEditMode, setEditMode] = useState(false)
+
+    const headerContext = useContext(HeaderContext);
+    headerContext.setTitle(props.title)
+
 
     const personalInfos = userContext.user
     
@@ -33,8 +38,8 @@ function Profile(props) {
     }
 
     return (
-        <IonPage >
-            <IonContent>
+        <div >
+            <div>
                 <div style={{margin: '24px'}}>
 
                     <div style={{display: 'flex', justifyContent: 'center'}}>
@@ -70,8 +75,8 @@ function Profile(props) {
                  
                 </div>
 
-            </IonContent>
-        </IonPage>
+            </div>
+        </div>
     )
 
 }

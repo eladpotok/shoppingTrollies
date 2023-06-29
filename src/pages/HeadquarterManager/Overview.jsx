@@ -54,9 +54,9 @@ function Overview(props) {
     }
 
     return (
-        <IonPage>
+        <div>
 
-            <IonContent>
+            <div>
                 
                 <div style={{margin: '15px'}}>
                     <Input style={{direction: languagesContext.languages.flow, borderColor: primaryThemeColorLight}}  placeholder={languagesContext.languages.translations.overViewFindEntityPlaceHolder} onChange={findBranchHandler}/>
@@ -82,9 +82,9 @@ function Overview(props) {
                                     </List>}
                 </div>
 
-            </IonContent>
+            </div>
 
-        </IonPage>
+        </div>
     )
 }
 

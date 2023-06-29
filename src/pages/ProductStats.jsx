@@ -5,6 +5,7 @@ import { useParams } from "react-router";
 import { getTrolliesById } from "../APIs/TrolleiesProvider";
 import { getBranchById } from "../APIs/BranchesProvider";
 import {IonContent, IonPage, NavContext} from '@ionic/react';
+import { HeaderContext } from "../Store/HeaderContext";
 
 function ProductStats(props) {
 
@@ -15,6 +16,8 @@ function ProductStats(props) {
     const [branchInfo, setBranchInfo] = useState(null)
     const {navigate} = useContext(NavContext);
 
+    const headerContext = useContext(HeaderContext);
+    headerContext.setTitle(props.title)
 
     useEffect(() => {
         (async () => {
@@ -27,8 +30,8 @@ function ProductStats(props) {
     }, [])
 
     return (
-        <IonPage>
-            <IonContent>
+        <div>
+            <div>
                 {branchInfo && <Card title='Branch Information' style={{margin: '15px'}}>
                     <div >
                         <div><b>Region:</b> {branchInfo.region}</div>
@@ -41,8 +44,8 @@ function ProductStats(props) {
                         <ProductPieChart key={tro.key} items={tro}/>
                     </Card>
                 })}
-            </IonContent>
-        </IonPage>
+            </div>
+        </div>
     )
 
 }

@@ -23,6 +23,8 @@ function Warehouse(props) {
     // useIonViewDidLeave( ()=> {
     //     setWarehouses(null)
     // })
+
+    console.log('enter')
     
     useEffect(() => {
         (async () => {
@@ -50,8 +52,8 @@ function Warehouse(props) {
     }, []);
 
     return (
-         <IonPage style={{margin: '10px'}}>
-             <IonContent>
+         <div style={{margin: '10px'}}>
+             <div>
                 <div style={{margin: '10px'}}>
                         {warehouses && <List itemLayout="horizontal"
                                         style={{direction: languagesContext.languages.flow}}
@@ -65,8 +67,8 @@ function Warehouse(props) {
                                                         </List.Item>}}>
                                         </List>}
                 </div>
-              </IonContent>
-          </IonPage>
+              </div>
+          </div>
      )
 }
 

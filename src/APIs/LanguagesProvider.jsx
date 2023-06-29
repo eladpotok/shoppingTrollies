@@ -16,7 +16,10 @@ export async function getLanguages(id) {
                 logoutButtonText: 'Logout',
                 warehouseTab: 'Warehouse',
                 ordersTab: 'Orders',
-                findTab: 'Find'
+                findTab: 'Find',
+                branchesTab: 'Branches',
+                productsTitle: 'Product',
+                profileTitle: 'Profile'
             }
         },
         {
@@ -35,7 +38,10 @@ export async function getLanguages(id) {
                 logoutButtonText: 'יציאה מהחשבון',
                 warehouseTab: 'מחסן',
                 ordersTab: 'הזמנות',
-                findTab: 'חיפוש'
+                findTab: 'חיפוש',
+                branchesTab: 'סניפים',
+                productsTitle: 'מוצר',
+                profileTitle: 'פרופיל'
             }
         }
     ] 
