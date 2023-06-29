@@ -1,5 +1,12 @@
 .background-div {
-    background-image: url("../assets/shooping-trolley-app-background.png");
+    /* background-image: url("../assets/shooping-trolley-app-background.png");
     background-size: cover;
-    background-position: center center;
+    background-position: center center; */
 }
+
+
+:where(.css-dev-only-do-not-override-12jzuas).ant-input:hover {
+    border-color: #e40047;
+}
+
+

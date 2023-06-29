@@ -13,7 +13,10 @@ export async function getLanguages(id) {
                 emailAddressLabel: 'Email Address',
                 passwordLabel: 'Password',
                 myAccountLabel: 'My Account',
-                logoutButtonText: 'Logout'
+                logoutButtonText: 'Logout',
+                warehouseTab: 'Warehouse',
+                ordersTab: 'Orders',
+                findTab: 'Find'
             }
         },
         {
@@ -29,7 +32,10 @@ export async function getLanguages(id) {
                 emailAddressLabel: 'כתובת מייל אלקטרוני',
                 passwordLabel: 'סיסמה',
                 myAccountLabel: 'החשבון שלי',
-                logoutButtonText: 'יציאה מהחשבון'
+                logoutButtonText: 'יציאה מהחשבון',
+                warehouseTab: 'מחסן',
+                ordersTab: 'הזמנות',
+                findTab: 'חיפוש'
             }
         }
     ] 

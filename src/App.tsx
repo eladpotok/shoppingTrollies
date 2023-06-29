@@ -27,6 +27,7 @@ import './theme/variables.css';
 import Main from './pages/Main';
 import { LanguagesContextProvider } from './Store/LanguagesContext';
 import { UserContextProvider } from './Store/UserContext';
+import { HeaderContextProvider } from './Store/HeaderContext';
 
 setupIonicReact();
 
@@ -35,7 +36,9 @@ const App: React.FC = () => (
   <IonApp>
     <LanguagesContextProvider>
       <UserContextProvider>
-        <Main/>
+        <HeaderContextProvider>
+          <Main/>
+        </HeaderContextProvider>
       </UserContextProvider>
     </LanguagesContextProvider>
   </IonApp>

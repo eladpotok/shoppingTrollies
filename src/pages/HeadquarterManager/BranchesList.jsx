@@ -26,9 +26,9 @@ function BranchesList(props) {
   return (
     <IonPage>
       <IonContent>
-        <div style={{margin: '10px' }}>
+        <div>
             <div style={{fontSize: '18px', marginLeft: '10px', display: 'flex', justifyContent: 'center'}}>
-              <div style={{background: 'white', paddingLeft: '40px', paddingRight: '40px'}}>List of Stores</div>
+              <div style={{background: 'rgba(255,255,255,0.5)', paddingLeft: '40px', paddingRight: '40px'}}>List of Stores</div>
             </div>
             {regions && regions.data.map( region => { 
               return <RegionsTreeList referTo={referTo} fontSize='24px' root={region}/>

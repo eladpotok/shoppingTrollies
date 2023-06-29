@@ -2,26 +2,48 @@ import { Card, Image } from "antd"
 import Meta from "antd/es/card/Meta"
 import { useEffect, useState} from "react"
 import { useLocation, useParams } from "react-router";
-import { IonContent, IonPage, NavContext, useIonViewDidLeave, useIonViewWillEnter } from "@ionic/react";
+import { IonContent, IonPage, NavContext, useIonViewDidEnter, useIonViewDidLeave, useIonViewWillEnter } from "@ionic/react";
 import { getWarehouseProducts } from "../APIs/WarehouseProvider";
 
 function WarehouseProducts(props) {
-    
+    const location = useLocation();
+
     const [warehouseProducts, setWarehouseProducts] = useState(null)
     let { warehosueId } = useParams();
     
-    useIonViewDidLeave( () => {
-        setWarehouseProducts(null)
-    })
+    // useIonViewDidLeave( () => {
+    //     setWarehouseProducts(null)
+    // })
+
+    // useIonViewWillEnter( async ()=> {
+    //     const products = await getWarehouseProducts(warehosueId)
+    //     setWarehouseProducts(products )
+    // })
 
     useEffect(() => {
         (async () => {
-            if(!warehouseProducts) {
+            
+       //     if(!warehouseProducts) {
+                console.log('read products from server')
                 const products = await getWarehouseProducts(warehosueId)
                 setWarehouseProducts(products )
-            }
+          //  }
         })()
-    }, [warehouseProducts])
+    }, [location.pathname])
+
+    // useEffect(async () => {
+    //     // Reset state when component mounts
+    //                  const products = await getWarehouseProducts(warehosueId)
+    //              setWarehouseProducts(products )
+    
+    //     // Clean up the state when component unmounts (optional)
+        
+    //   }, []); // Empty dependency array ensures this effect runs only once
+    
+    //   const resetState = () => {
+    //     setWarehouseProducts(null)
+    //   };
+    
 
     return (
         <IonPage style={{margin: '10px'}}>

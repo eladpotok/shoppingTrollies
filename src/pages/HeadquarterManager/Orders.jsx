@@ -3,9 +3,11 @@ import { IonContent, IonPage } from "@ionic/react"
 import { getMissingTrollies } from "../../APIs/TrolleiesProvider"
 import { Card, Image } from "antd"
 import Meta from "antd/es/card/Meta";
+import { HeaderContext } from "../../Store/HeaderContext";
 
 function Orders(props) {
-
+    const headerContext = useContext(HeaderContext);
+    headerContext.setTitle(props.title)
     const [branches, setBranches] = useState(null)
 
     useEffect(() => {
