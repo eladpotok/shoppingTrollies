@@ -38,3 +38,8 @@ export async function login(mail, password) {
 
     return loggedInUser[0]
 }
+
+
+export async function editUser(user) {
+    console.log("user saved" , user)
+}

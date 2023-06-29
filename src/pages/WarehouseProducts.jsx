@@ -4,6 +4,7 @@ import { useEffect, useState} from "react"
 import { useLocation, useParams } from "react-router";
 import { IonContent, IonPage, NavContext, useIonViewDidEnter, useIonViewDidLeave, useIonViewWillEnter } from "@ionic/react";
 import { getWarehouseProducts } from "../APIs/WarehouseProvider";
+import { listDividerColor, primaryThemeColorLight, primaryThemeCoor as primaryThemeColor } from "../Globals/Themes";
 
 function WarehouseProducts(props) {
     const location = useLocation();
@@ -46,16 +47,16 @@ function WarehouseProducts(props) {
     
 
     return (
-        <div style={{margin: '10px'}}>
-            <div>
-                {warehouseProducts && warehouseProducts.exists.map( storage => {  return  <Card style={{marginTop: '10px'}} cover={<div style={{background:'grey', borderTopLeftRadius: '10px', borderTopRightRadius: '10px'}}><Image style={{marginLeft: '50%'}} height={155} width={155} src={storage.imageUrl}/></div>}>
+        <IonContent >
+            <div style={{margin: '20px'}}>
+                {warehouseProducts && warehouseProducts.exists.map( storage => {  return  <Card style={{marginTop: '10px'}} cover={<div style={{background: listDividerColor, borderTopLeftRadius: '10px', borderTopRightRadius: '10px'}}><Image style={{marginLeft: '50%'}} height={155} width={155} src={storage.imageUrl}/></div>}>
                         <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                            <Meta title={storage.title} description={storage.description} />
-                            <div style={{fontSize: '30px', fontWeight: 'bold'}}>{storage.amount}</div>
+                            <Meta title={<div style={{color: primaryThemeColor}}>{storage.title}</div>} description={<div style={{color: primaryThemeColorLight}}>{storage.description}</div>} />
+                            <div style={{fontSize: '30px', color: primaryThemeColor, fontWeight: 'bold'}}>{storage.amount}</div>
                         </div>
                  </Card> })}
             </div>
-        </div>
+        </IonContent>
     )
 }
 

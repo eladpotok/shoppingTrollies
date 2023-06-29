@@ -11,6 +11,7 @@ import { LanguagesContext } from "../Store/LanguagesContext";
 import { AiFillEdit, AiOutlineMail } from "react-icons/ai";
 import { MdPassword, MdAccountBox, MdLanguage } from "react-icons/md";
 import { HeaderContext } from "../Store/HeaderContext";
+import { editUser } from "../APIs/UserProvider";
 
 function Profile(props) {
 
@@ -37,6 +38,10 @@ function Profile(props) {
         return roleName
     }
 
+    async function editLabelHandler() {
+        await editUser(personalInfos)
+    }
+
     return (
         <div >
             <div>
@@ -48,9 +53,9 @@ function Profile(props) {
                     </div>
 
                     <div style={{justifyContent: 'center', display: 'flex', fontSize: '30px', fontWeight: 'bold', marginTop: '10px'}}>
-                        <EditLabel isEdit={isEditMode} value={personalInfos.firstName}/>
+                        <EditLabel onEditDone={editLabelHandler} isEdit={isEditMode} value={personalInfos} path="firstName"/>
                         &nbsp;
-                        <EditLabel isEdit={isEditMode} value={personalInfos.surename}/>
+                        <EditLabel onEditDone={editLabelHandler} isEdit={isEditMode} value={personalInfos} path="surename"/>
                     </div>
 
                     <div style={{justifyContent: 'center', display: 'flex', marginTop: '10px', color: lightTextColor}}>{getRoleName()}</div>
@@ -58,13 +63,13 @@ function Profile(props) {
                     <div style={{display: 'flex', marginTop: '40px', color: secondaryTitleColor}}>
                         <AiOutlineMail style={{marginRight: '10px', marginTop: '1px'}}/>
                         {languagesContext.languages.translations['emailAddressLabel']}</div>
-                    <div style={{display: 'flex', marginTop: '10px', fontWeight: 'bold', marginLeft: '27px'}}><EditLabel isEdit={isEditMode} value={personalInfos.mail}/></div>
+                    <div style={{display: 'flex', marginTop: '10px', fontWeight: 'bold', marginLeft: '27px'}}><EditLabel onEditDone={editLabelHandler} isEdit={isEditMode} value={personalInfos} path="mail"/></div>
 
                     <div style={{display: 'flex', marginTop: '40px', color: secondaryTitleColor}}>
                         <MdPassword style={{marginRight: '10px', marginTop: '1px'}}/>
                         {languagesContext.languages.translations['passwordLabel']}
                     </div>
-                    <div style={{display: 'flex', marginTop: '10px', fontWeight: 'bold', marginLeft: '27px'}}><EditLabel password isEdit={isEditMode} value={personalInfos.password}/></div>
+                    <div style={{display: 'flex', marginTop: '10px', fontWeight: 'bold', marginLeft: '27px'}}><EditLabel onEditDone={editLabelHandler} password isEdit={isEditMode} value={personalInfos} path="password"/></div>
                     
 
                     <div style={{display: 'flex', marginTop: '40px', color: secondaryTitleColor}}>

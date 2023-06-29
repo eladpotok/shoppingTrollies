@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 
 import BranchesList from "./BranchesList";
 import { HeaderContext } from "../../Store/HeaderContext";
+import { IonContent } from "@ionic/react";
 
 function BranchesProductsStatus(props) {
   const headerContext = useContext(HeaderContext)
@@ -11,7 +12,9 @@ function BranchesProductsStatus(props) {
   headerContext.setTitle(props.title)
 
   return (
-      <BranchesList referTo={referTo}/>
+      <IonContent>
+        <BranchesList referTo={referTo}/>
+      </IonContent>
   );
 };
 

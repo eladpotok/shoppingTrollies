@@ -54,7 +54,7 @@ function Overview(props) {
     }
 
     return (
-        <div>
+        <IonContent>
 
             <div>
                 
@@ -84,7 +84,7 @@ function Overview(props) {
 
             </div>
 
-        </div>
+        </IonContent>
     )
 }
 

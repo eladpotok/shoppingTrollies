@@ -20,6 +20,20 @@ export async function getWarehouses() {
                     title: 'Basket',
                     imageUrl: 'src\\Assets\\product_basket.png',
                     amount: 12
+                },
+                {
+                    productId: 1,
+                    description: "this trolley is .... ",
+                    title: 'Trolley',
+                    imageUrl: 'src\\Assets\\product_cart.png',
+                    amount: 20
+                },
+                {
+                    productId: 2,
+                    description: "this basket is .... ",
+                    title: 'Basket',
+                    imageUrl: 'src\\Assets\\product_basket.png',
+                    amount: 12
                 }
             ]
         },
